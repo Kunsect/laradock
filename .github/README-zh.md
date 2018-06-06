@@ -86,7 +86,7 @@ docker-compose up -d nginx mysql redis
 ### 特点
 
 - 在 PHP 版本：7.0，5.6.5.5...之中可以简单切换。
-- 可选择你最喜欢的数据库引擎，比如：MySQL, Postgres, MariaDB...
+- 可选择你最喜欢的数据库引擎，比如：MySQL, Postgres...
 - 可运行自己的软件组合，比如：Memcached, HHVM, Beanstalkd...
 - 所有软件运行在不同的容器之中，比如：PHP-FPM, NGINX, PHP-CLI...
 - 通过简单的编写 `Dockerfile` 容易定制任何容器。
@@ -104,7 +104,6 @@ docker-compose up -d nginx mysql redis
 - **数据库引擎:**
 	- MySQL
 	- PostgreSQL
-	- MariaDB
 	- MongoDB
 	- Neo4j
 - **缓存引擎:**
@@ -113,7 +112,6 @@ docker-compose up -d nginx mysql redis
 - **PHP 服务器:**
 	- NGINX
 	- Apache2
-	- Caddy
 - **PHP 编译工具:**
 	- PHP-FPM
 	- HHVM
@@ -205,7 +203,7 @@ docker-compose up -d  nginx mysql
 ```
 你可以从以下列表选择你自己的容器组合：
 
-`nginx`, `hhvm`, `php-fpm`, `mysql`, `redis`, `postgres`, `mariadb`, `neo4j`, `mongo`, `apache2`, `caddy`, `memcached`, `beanstalkd`, `beanstalkd-console`, `workspace`.
+`nginx`, `hhvm`, `php-fpm`, `mysql`, `redis`, `postgres`, `neo4j`, `mongo`, `apache2`, `memcached`, `beanstalkd`, `beanstalkd-console`, `workspace`.
 
 **说明**: `workspace` 和 `php-fpm` 将运行在大部分实例中, 所以不需要在 `up` 命令中加上它们.
 

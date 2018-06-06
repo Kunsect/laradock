@@ -277,23 +277,6 @@ services:
       networks:
         - backend
 
-### MariaDB Container #######################################
-
-    mariadb:
-      build: ./mariadb
-      volumes:
-        - ${DATA_SAVE_PATH}/mariadb:/var/lib/mysql
-        - ${MARIADB_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
-      ports:
-        - "${MARIADB_PORT}:3306"
-      environment:
-        - MYSQL_DATABASE=${MARIADB_DATABASE}
-        - MYSQL_USER=${MARIADB_USER}
-        - MYSQL_PASSWORD=${MARIADB_PASSWORD}
-        - MYSQL_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
-      networks:
-        - backend
-
 ### PostgreSQL Container ####################################
 
     postgres:
@@ -439,72 +422,6 @@ services:
         - beanstalkd
       networks:
         - backend
-
-### Caddy Server Container ##################################
-
-    caddy:
-      build: ./caddy
-      volumes_from:
-        - applications
-      volumes:
-        - ${CADDY_CUSTOM_CADDYFILE}:/etc/Caddyfile
-        - ${CADDY_HOST_LOG_PATH}:/var/log/caddy
-        - ${DATA_SAVE_PATH}:/root/.caddy
-      ports:
-        - "${CADDY_HOST_HTTP_PORT}:80"
-        - "${CADDY_HOST_HTTPS_PORT}:443"
-      depends_on:
-        - php-fpm
-      networks:
-        - frontend
-        - backend
-
-### phpMyAdmin Container ####################################
-
-    phpmyadmin:
-      build: ./phpmyadmin
-      environment:
-        - PMA_ARBITRARY=1
-        - MYSQL_USER=${PMA_USER}
-        - MYSQL_PASSWORD=${PMA_PASSWORD}
-        - MYSQL_ROOT_PASSWORD=${PMA_ROOT_PASSWORD}
-      ports:
-        - "${PMA_PORT}:80"
-      depends_on:
-        - "${PMA_DB_ENGINE}"
-      networks:
-        - frontend
-        - backend
-
-### Adminer Container ####################################
-
-    adminer:
-      build:
-        context: ./adminer
-        args:
-          - INSTALL_MSSQL=${ADM_INSTALL_MSSQL}
-      ports:
-        - "${ADM_PORT}:8080"
-      depends_on:
-        - php-fpm
-      networks:
-        - frontend
-        - backend
-
-### pgAdmin Container #######################################
-
-    pgadmin:
-      build: ./pgadmin
-      ports:
-        - "5050:5050"
-      volumes:
-        - ${DATA_SAVE_PATH}/pgadmin-backup:/var/lib/pgadmin/storage/pgadmin4
-      depends_on:
-        - postgres
-      networks:
-        - frontend
-        - backend
-
 
 ### ElasticSearch Container #################################
 
@@ -741,13 +658,7 @@ volumes:
     driver: "local"
   rethinkdb:
     driver: "local"
-  phpmyadmin:
-    driver: "local"
-  adminer:
-    driver: "local"
   aerospike:
-    driver: "local"
-  caddy:
     driver: "local"
   elasticsearch-data:
     driver: "local"

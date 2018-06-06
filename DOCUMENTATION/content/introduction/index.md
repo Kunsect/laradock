@@ -59,7 +59,7 @@ That's it! enjoy :)
 ## Features
 
 - Easy switch between PHP versions: 7.1, 7.0, 5.6...
-- Choose your favorite database engine: MySQL, Postgres, MariaDB...
+- Choose your favorite database engine: MySQL, Postgres...
 - Run your own combination of software: Memcached, HHVM, Beanstalkd...
 - Every software runs on a separate container: PHP-FPM, NGINX, PHP-CLI...
 - Easy to customize any container, with simple edit to the `Dockerfile`.
@@ -83,13 +83,11 @@ In adhering to the separation of concerns principle as promoted by Docker, Larad
 You can turn On/Off as many instances of as any container without worrying about the configurations, everything works like a charm.
 
 - **Database Engines:**
-MySQL - MariaDB - Percona - MongoDB - Neo4j - RethinkDB - MSSQL - PostgreSQL - Postgres-PostGIS.
-- **Database Management:**
-PhpMyAdmin - Adminer - PgAdmin
+MySQL - Percona - Neo4j - RethinkDB - MSSQL - PostgreSQL - Postgres-PostGIS.
 - **Cache Engines:**
 Redis - Memcached - Aerospike
 - **PHP Servers:**
-NGINX - Apache2 - Caddy
+NGINX - Apache2
 - **PHP Compilers:**
 PHP FPM - HHVM
 - **Message Queueing:**

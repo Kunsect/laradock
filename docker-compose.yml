@@ -583,6 +583,7 @@ services:
         - "${LARAVEL_ECHO_SERVER_PORT}:6001"
       links:
         - redis
+        - nginx
       networks:
         - frontend
         - backend

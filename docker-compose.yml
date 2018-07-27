@@ -151,8 +151,10 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+        backend:
+            aliases:
+              - b365-api.io
 
 ### Blackfire Container #################################
 

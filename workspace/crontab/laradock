@@ -1,1 +1,1 @@
-* * * * * laradock php /var/www/b365-api/artisan schedule:run >> /dev/null 2>&1
+0 0 * * * laradock php /var/www/b365-api/artisan schedule:run >> /dev/null 2>&1

@@ -421,12 +421,12 @@ services:
       environment:
         - cluster.name=laradock-cluster
         - bootstrap.memory_lock=true
-        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        - "ES_JAVA_OPTS=-Xms2048m -Xmx2048m"
       ulimits:
         memlock:
           soft: -1
           hard: -1
-      mem_limit: 1024m
+      mem_limit: 4096m
       ports:
         - "${ELASTICSEARCH_HOST_HTTP_PORT}:9200"
         - "${ELASTICSEARCH_HOST_TRANSPORT_PORT}:9300"
